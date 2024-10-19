@@ -11,6 +11,7 @@ import ru.example.models.Color;
 import ru.example.models.Rectangle;
 import ru.example.models.Shape;
 import ru.example.services.CircleService;
+import ru.example.services.RectangleService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,13 +20,14 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ShapeController {
     private final CircleService circleService;
+    private final RectangleService rectangleService;
     @GetMapping("/circles")
     public ResponseEntity<List<Circle>> circles(){
         return ResponseEntity.ok(circleService.getAll());
     }
     @GetMapping("/rectangles")
     public ResponseEntity<List<Rectangle>> rectangles(){
-        return ResponseEntity.ok(circleService.getAll());
+        return ResponseEntity.ok(rectangleService.getAll());
     }
     @GetMapping("/figures")
     public ResponseEntity<List<Shape>> figures(@RequestParam Color c){
@@ -34,4 +36,4 @@ public class ShapeController {
         return ResponseEntity.ok(shapes);
     }
 }
-}
+
