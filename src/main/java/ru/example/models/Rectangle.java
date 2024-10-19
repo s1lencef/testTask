@@ -33,4 +33,9 @@ public class Rectangle implements Shape{
     public Double getDiagonal(){
         return Math.sqrt(length*length+width*width);
     }
+    public Rectangle (Double l, Double w, Color c){
+        length =l;
+        width = w;
+        color = c;
+    }
 }

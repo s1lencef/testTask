@@ -14,4 +14,7 @@ public class RectangleService {
     public List<Rectangle> getAll(){
         return rectangleRepository.findAll();
     }
+    public void save(Rectangle rectangle){
+        rectangleRepository.save(rectangle);
+    }
 }
