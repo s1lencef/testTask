@@ -5,24 +5,32 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.*;
+
 @Setter
 @Getter
-
-public class Circle extends Shape{
+@Entity
+@NoArgsConstructor
+public class Circle implements Shape{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private Double r;
+    @Enumerated(value = EnumType.ORDINAL)
+    private Color color;
 
     public Circle(Double r, Color color) {
-        super(color);
+        this.color = color;
         this.r = r;
     }
 
     @Override
     public Double getArea() {
-        return Math.PI*this.r*this.r;
+        return Math.PI*r*r;
     }
 
     @Override
     public Double getPerimeter() {
-        return 2*Math.PI*this.r;
+        return 2*Math.PI*r;
     }
 }

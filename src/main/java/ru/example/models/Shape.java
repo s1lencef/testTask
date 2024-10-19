@@ -1,17 +1,14 @@
 package ru.example.models;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Setter
-@Getter
-public abstract class Shape {
-    protected Color color;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-    public Shape(Color color) {
-        this.color = color;
-    }
-
+public interface Shape {
     public abstract Double getArea();
     public abstract Double getPerimeter();
 
