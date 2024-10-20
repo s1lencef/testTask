@@ -16,7 +16,7 @@ public class CircleInfoDto {
     private Double area;
     private Double perimeter;
     public CircleInfoDto(Circle circle){
-        this.radius = circle.getR();
+        this.radius = circle.getRadius();
         this.color = circle.getColor();
         this.area = circle.getArea();
         this.perimeter = circle.getPerimeter();

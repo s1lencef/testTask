@@ -1,11 +1,10 @@
-package ru.example;
+package ru.example.controllers;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import ru.example.dto.CircleInfoDto;
 import ru.example.models.Circle;
 import ru.example.models.Color;
 import ru.example.models.Rectangle;
@@ -23,16 +22,20 @@ public class ShapeController {
     private final RectangleService rectangleService;
     @GetMapping("/circles")
     public ResponseEntity<List<Circle>> circles(){
-        return ResponseEntity.ok(circleService.getAll());
+        return ResponseEntity.ok(circleService.getSortedAll());
     }
     @GetMapping("/rectangles")
     public ResponseEntity<List<Rectangle>> rectangles(){
         return ResponseEntity.ok(rectangleService.getAll());
     }
     @GetMapping("/figures")
-    public ResponseEntity<List<Shape>> figures(@RequestParam Color c){
+    public ResponseEntity<List<Shape>> figures(@RequestParam(required = false) Color c){
         ArrayList<Shape> shapes = new ArrayList<>();
-        shapes.addAll(circleService.getAll());
+        if (c != null) {
+            shapes.addAll(circleService.getSortedByColor(c));
+        }
+
+//        shapes.addAll(rectangleService.getAll());
         return ResponseEntity.ok(shapes);
     }
 }

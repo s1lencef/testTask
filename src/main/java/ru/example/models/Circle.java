@@ -15,22 +15,22 @@ public class Circle implements Shape{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Double r;
+    private Double radius;
     @Enumerated(value = EnumType.ORDINAL)
     private Color color;
 
     public Circle(Double r, Color color) {
         this.color = color;
-        this.r = r;
+        this.radius = r;
     }
 
     @Override
     public Double getArea() {
-        return Math.PI*r*r;
+        return Math.PI*radius*radius;
     }
 
     @Override
     public Double getPerimeter() {
-        return 2*Math.PI*r;
+        return 2*Math.PI*radius;
     }
 }

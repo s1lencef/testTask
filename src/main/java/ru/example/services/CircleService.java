@@ -3,6 +3,7 @@ package ru.example.services;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.example.models.Circle;
+import ru.example.models.Color;
 import ru.example.repos.CircleRepository;
 
 import java.util.List;
@@ -14,7 +15,10 @@ public class CircleService {
     public void save(Circle circle){
         circleRepository.save(circle);
     }
-    public List<Circle> getAll(){
-        return circleRepository.findAll();
+    public List<Circle> getSortedAll(){
+        return circleRepository.findAllByOrderByRadiusAsc();
+    }
+    public List<Circle> getSortedByColor(Color color){
+        return circleRepository.findByColorOrderByRadiusAsc(color);
     }
 }

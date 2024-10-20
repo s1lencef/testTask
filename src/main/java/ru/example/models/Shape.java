@@ -11,5 +11,4 @@ import javax.persistence.Id;
 public interface Shape {
     public abstract Double getArea();
     public abstract Double getPerimeter();
-
 }
