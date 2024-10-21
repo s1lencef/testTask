@@ -7,8 +7,7 @@ import java.util.Random;
 
 public enum Color {
     red,blue,green,yellow,white,black;
-    public static Color getRandomColor(){
-        Random random = new Random();
+    public static Color getRandomColor(Random random){
         int colorOrd = random.nextInt(5);
         for (Color color: Color.values()){
             if(color.ordinal() == colorOrd){

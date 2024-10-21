@@ -18,18 +18,19 @@ import java.util.Random;
 public class CustomRunner implements ApplicationRunner {
     private final CircleService circleService;
     private final RectangleService rectangleService;
+    private final Random random = new Random();
     @Override
     public void run(ApplicationArguments args) throws Exception {
         for(int i = 0; i<3;i ++){
-            circleService.save(new Circle(getRandomNumber(),Color.getRandomColor()));
+            circleService.save(new Circle(getRandomNumber(),Color.getRandomColor(random)));
         }
         for(int i = 0; i<4;i++){
-            rectangleService.save(new Rectangle(getRandomNumber(),getRandomNumber(),Color.getRandomColor()));
+            rectangleService.save(new Rectangle(getRandomNumber(),getRandomNumber(),Color.getRandomColor(random)));
         }
     }
 
     private Double getRandomNumber(){
-        Random random = new Random();
+
         double r = random.nextDouble();
         if(r>0.0){
             return r*10;
