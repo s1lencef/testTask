@@ -44,15 +44,6 @@ public class ShapesService {
         int j = 0;
         int n = circles.size();
         int m = rectangles.size();
-        System.out.println("circles areas: ");
-        circles.forEach(circle -> {
-            System.out.println(circle.getArea());
-        });
-        System.out.println("rectangles areas: ");
-        rectangles.forEach(rectangle -> {
-            System.out.println(rectangle.getArea());
-        });
-
         while (i<n && j<m){
             if(circles.get(i).getArea()<rectangles.get(j).getArea()){
                 shapes.add(new CircleDto(circles.get(i)));
