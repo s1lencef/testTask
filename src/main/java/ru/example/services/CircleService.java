@@ -15,10 +15,10 @@ public class CircleService {
     public void save(Circle circle){
         circleRepository.save(circle);
     }
-    public List<Circle> getSortedAll(){
+    public List<Circle> getAllSorted(){
         return circleRepository.findAllByOrderByRadiusAsc();
     }
-    public List<Circle> getSortedByColor(Color color){
+    public List<Circle> getByColorSorted(Color color){
         return circleRepository.findByColorOrderByRadiusAsc(color);
     }
 }
