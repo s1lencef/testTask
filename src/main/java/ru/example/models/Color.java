@@ -1,8 +1,5 @@
 package ru.example.models;
 
-import net.bytebuddy.utility.RandomString;
-
-import java.sql.SQLOutput;
 import java.util.Random;
 
 public enum Color {
